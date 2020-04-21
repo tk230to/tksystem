@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>一覧画面</title>
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous"
+>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4"
+      aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">一覧画面</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" th:href="@{/index}">トップ</a></li>
+        <li class="nav-item active"><a class="nav-link" th:href="@{/customer/regist/}">新規登録</a></li>
+        <li class="nav-item active"><a class="nav-link" th:href="@{/customer/list/}">一覧</a></li>
+      </ul>
+    </div>
+  </nav>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th width="10%">ID</th>
+        <th width="80%">名前</th>
+        <th width="10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="customer:${customer}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+        <td>
+          <a th:href="@{/customer/delete/{id}(id=${customer.id})}" onClick="return window.confirm('削除してよろしいですか？')">
+            <img th:src="@{/img/delete.png}">
+          </a>
+          <a th:href="@{/customer/edit/{id}(id=${customer.id})}">
+            <img th:src="@{/img/edit.png}">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

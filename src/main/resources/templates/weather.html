@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>気象画面</title>
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
+
+<script src="/js/node_modules/jquery/dist/jquery.min.js"
+  th:src="@{/js/node_modules/jquery/dist/jquery.min.js}"></script>
+<script src="/js/node_modules/jqplot/jquery.jqplot.min.js"
+  th:src="@{/js/node_modules/jqplot/jquery.jqplot.min.js}"></script>
+<link rel="stylesheet" type="text/css"
+  href="/js/node_modules/jqplot/jquery.jqplot.min.css"
+  th:href="@{/js/node_modules/jqplot/jquery.jqplot.min.css}">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarNav4" aria-controls="navbarNav4"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">トップ画面</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link"
+          th:href="@{/index}">トップ</a></li>
+        <li class="nav-item active"><a class="nav-link"
+          th:href="@{/regist/}">新規登録</a></li>
+        <li class="nav-item active"><a class="nav-link"
+          th:href="@{/list/}">一覧</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <table th:if="${customer != null}" class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="customer:${customer}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.name}"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span>散布図サンプル</span>
+  <div id="jqPlot-sample" style="height: 300px; width: 300px;"></div>
+
+</body>
+
+<script>
+$( function() {
+  $.jqplot(
+    'jqPlot-sample',
+    [
+      [
+        [ 88, 65, 'A' ], [ 36, 22, 'B' ], [ 33, 54, 'C' ],
+        [ 51, 63, 'D' ], [ 21, 91, 'E' ], [ 45, 79, 'F' ]
+      ]
+    ],
+    {
+      seriesDefaults: {
+        color: '#7dffc7',
+        showLine: false,
+        markerOptions: {
+          size: 16
+        },
+        pointLabels: {
+          show: true,
+          location: 'n',
+          ypadding: -12,
+        }
+      }
+    }
+  );
+} );
+</script>
+</html>

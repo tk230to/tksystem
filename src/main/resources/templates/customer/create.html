@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout :: head('登録')">
+</head>
+
+<body>
+  <div th:replace="fragments/layout :: navbar"></div>
+
+  <form action="#" th:action="@{/customers/create/}" th:object="${customer}" method="post">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <p>登録する顧客情報を入力してください。</p>
+        <label for="name">名前 <span class="badge badge-danger">必須</span></label>
+        <input type="text" id="name" class="form-control" placeholder="(例) 山田　太郎" th:field="*{name}" />
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">登録</button>  
+    </div>
+  </form>
+
+</body>
+</html>

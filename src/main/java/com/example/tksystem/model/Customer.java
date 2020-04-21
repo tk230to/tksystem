@@ -16,13 +16,16 @@ import lombok.Data;
 @Data
 public class Customer {
 
+  /** シーケンス名 */
+  private static final String SEQUENCE_NAME = "customer_id_seq";
+
   /** ID */
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_seq")
-  @SequenceGenerator(name = "customer_id_seq", sequenceName = "customer_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
+  @SequenceGenerator(name = SEQUENCE_NAME, sequenceName = SEQUENCE_NAME, allocationSize = 1)
   private Long id;
 
-  @NotBlank
   /** 名前 */
+  @NotBlank
   private String name;
 }

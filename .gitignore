@@ -3,5 +3,5 @@
 .gradle/
 .settings/
 bin/
-gradle/
 src/main/resources/static/js/node_modules/
+build/

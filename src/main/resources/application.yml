@@ -2,13 +2,13 @@ spring:
   datasource:
 
     # PostgresのIPアドレス/ポート番号/DB名
-    url: jdbc:postgresql://ipxcnyojhndupl:595d47326c494e5d6591ef9770b2c11cf77cafe6e1c2ae37cf834301a08f480f@ec2-18-235-20-228.compute-1.amazonaws.com:5432/d2cppnq8i174oj
+    url: jdbc:postgresql://cwkhxfulysqihn:3cbd8167912520cc06d37c7597e444f05545fed0f902ab909deea7acc82ca497@ec2-34-197-212-240.compute-1.amazonaws.com:5432/d52082ofe1v1sm
 
     # Postgresのユーザ名
-    username: ipxcnyojhndupl
+    username: cwkhxfulysqihn
 
     # Postgresのパスワード
-    password: 595d47326c494e5d6591ef9770b2c11cf77cafe6e1c2ae37cf834301a08f480f
+    password: 3cbd8167912520cc06d37c7597e444f05545fed0f902ab909deea7acc82ca497
 
     # PostgresのJDBCドライバ
     driver-class-name: org.postgresql.Driver

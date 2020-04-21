@@ -1,9 +1,17 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres # PostgresのIPアドレス/ポート番号/DB名
-    username: postgres                             # Postgresのユーザ名
-    password: postgres                             # Postgresのパスワード
-    driver-class-name: org.postgresql.Driver       # PostgresのJDBCドライバ
+
+    # PostgresのIPアドレス/ポート番号/DB名
+    url: jdbc:postgresql://ipxcnyojhndupl:595d47326c494e5d6591ef9770b2c11cf77cafe6e1c2ae37cf834301a08f480f@ec2-18-235-20-228.compute-1.amazonaws.com:5432/d2cppnq8i174oj
+
+    # Postgresのユーザ名
+    username: ipxcnyojhndupl
+
+    # Postgresのパスワード
+    password: 595d47326c494e5d6591ef9770b2c11cf77cafe6e1c2ae37cf834301a08f480f
+
+    # PostgresのJDBCドライバ
+    driver-class-name: org.postgresql.Driver
 
   batch:
     initialize-schema: always # ジョブ実行に必要なSpring用のテーブルを作成
